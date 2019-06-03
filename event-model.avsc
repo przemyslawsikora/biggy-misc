@@ -1,0 +1,15 @@
+{
+  "name": "Event",
+  "namespace": "com.przemyslawsikora.biggy",
+  "type": "record",
+  "doc": "Event",
+  "version": "1",
+  "fields": [
+    {
+      "name": "date",
+      "type": "long",
+      "logicalType": "timestamp-millis",
+      "doc": "Date of the event"
+    }
+  ]
+}
