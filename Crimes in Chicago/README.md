@@ -4,8 +4,7 @@ Reported incidents of crime (with the exception of murders where data exists for
 that occurred in the City of Chicago from 2001 to present. Data is extracted from 
 the Chicago Police Department's CLEAR (Citizen Law Enforcement Analysis and Reporting) system.
 
-Download CSV file (~1.7 GB) from  
-https://catalog.data.gov/dataset/crimes-2001-to-present-398a4  
+Download CSV file (~1.7 GB) from https://catalog.data.gov/dataset/crimes-2001-to-present-398a4  
 and save it as <code>Crimes in Chicago/Crimes_-_2001_to_present.csv</code>  
 Next, run <code>crimes_in_chicago.py</code>
 

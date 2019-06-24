@@ -4,6 +4,7 @@ from confluent_kafka.avro import AvroProducer
 kafka_address = 'localhost:9093'
 schema_registry_url = 'http://localhost:8085'
 event_model_path = 'event-model.avsc'
+kafka_topic = 'events'
 
 event_schema = avro.load(event_model_path)
 producer = AvroProducer({
@@ -34,5 +35,5 @@ event = {
         'array_bytes_field': [b'\x00\x01\x02', b'\x03\x04\x05']
     }
 }
-producer.produce(topic='events', value=event)
+producer.produce(topic=kafka_topic, value=event)
 producer.flush()
