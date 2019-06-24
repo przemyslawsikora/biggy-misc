@@ -6,10 +6,90 @@
   "version": "1",
   "fields": [
     {
-      "name": "date",
-      "type": "long",
-      "logicalType": "timestamp-millis",
-      "doc": "Date of the event"
+      "name": "object",
+      "type": "string",
+      "doc": "Object (type) of the event"
+    },
+    {
+      "name": "time",
+      "type": {
+        "type": "record",
+        "name": "EventTime",
+        "fields": [
+          {
+            "name": "type",
+            "type": {
+              "type": "enum",
+              "name": "EventTimeType",
+              "symbols": [
+                "moment",
+                "periodClosedClosed",
+                "periodClosedOpened"
+              ]
+            },
+            "doc": "Type of the event interval"
+          },
+          {
+            "name": "startDate",
+            "type": "long",
+            "logicalType": "timestamp-millis",
+            "doc": "Beginning of the event"
+          },
+          {
+            "name": "startDateOffset",
+            "type": "string",
+            "doc": "Timezone of beginning of the event, e.g +02:00"
+          },
+          {
+            "name": "stopDate",
+            "type": [
+              "null",
+              "long"
+            ],
+            "logicalType": "timestamp-millis",
+            "doc": "End of the event"
+          },
+          {
+            "name": "stopDateOffset",
+            "type": [
+              "null",
+              "string"
+            ],
+            "doc": "Timezone of end of the event, e.g +02:00"
+          }
+        ]
+      },
+      "doc": "Timestamp or period when the event occurs"
+    },
+    {
+      "name": "attributes",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": [
+            "string",
+            "boolean",
+            "int",
+            "long",
+            "float",
+            "double",
+            "bytes",
+            {
+              "type": "array",
+              "items": [
+                "string",
+                "boolean",
+                "int",
+                "long",
+                "float",
+                "double",
+                "bytes"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
